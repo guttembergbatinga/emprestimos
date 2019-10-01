@@ -1,6 +1,8 @@
 package aplicacao;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +16,13 @@ public class Programa {
 
 		Scanner input = new Scanner(System.in);
 		int senha, menuopcao, opcao;
-		String login, nome, email, celular, data;
+		String login, nome, email, celular;
+		
+		Date data = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		String dataFormatada = sdf.format(data);
+		String dataDevolucao;
+		
 
 		List<Usuario> lista = new ArrayList<Usuario>();
 		List<Pessoa> listaPessoaFisica = new ArrayList<Pessoa>();
@@ -47,9 +55,12 @@ public class Programa {
 						email = input.next();
 						System.out.print("Contato de celular do amigo: ");
 						celular = input.next();
-						System.out.print("Data do empréstimo: (DD/mm/YYYY)");
-						data = input.next();
-						Pessoa pessoa = new Pessoa(nome, email, celular, data);
+						System.out.print("Data de Empréstimo: "+ dataFormatada);
+						System.out.println("");
+						System.out.println("Digite a data de Devolução: ");
+						dataDevolucao = input.next();
+						
+						Pessoa pessoa = new Pessoa(nome, email, celular, dataFormatada, dataDevolucao);
 
 						listaPessoaFisica.add(pessoa);
 						break;

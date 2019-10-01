@@ -1,22 +1,31 @@
 package objetos;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Pessoa {
 	
 	private String nome;
 	private String email;
 	private String celular;
-	private String data;
+	private String dataDevolucao;
+	
+	private Date data = new Date();
+	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+	String dataFormatada = sdf.format(data);
+	
 	
 	public Pessoa() {
 		
 	}
 
-	public Pessoa(String nome, String email, String celular, String data) {
+	public Pessoa(String nome, String email, String celular, String dataFormatada, String dataDevolucao) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.celular = celular;
-		this.data = data;
+		this.dataFormatada = dataFormatada;
+		this.dataDevolucao = dataDevolucao;
 	}
 
 	public String getNome() {
@@ -46,14 +55,26 @@ public class Pessoa {
 	public String getData() {
 		return nome;
 	}
+	
+	public String getDataFormatada() {
+		return dataFormatada;
+	}
+	public void setDataFormatada(String dataFormatada) {
+		this.dataFormatada = dataFormatada;
+	}
 
-	public void setData(String data) {
-		this.data = data;
+	public String getDataDevolucao() {
+		return dataDevolucao;
+	}
+
+	public void setDataDevolucao(String dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
 	}
 
 	@Override
 	public String toString() {
-		return "\nNome: " + nome + "\n\nEmail: " + email + "\n\nCelular: " + celular + "\n\nData do Empréstimo: " + data + "\n";
+		return "\nNome: " + nome + ", \nE-mail: " + email + ", \nCelular: " + celular + ", \nData do Empréstimo: " 
+				+ dataFormatada + "\nData de Devolução : " + dataDevolucao +  "";
 	}
 
 	
