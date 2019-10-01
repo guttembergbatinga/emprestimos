@@ -70,11 +70,12 @@ public class Pessoa {
 	public void setDataDevolucao(String dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
+	
 
 	@Override
 	public String toString() {
 		return "\nNome: " + nome + ", \nE-mail: " + email + ", \nCelular: " + celular + ", \nData do Empréstimo: " 
-				+ dataFormatada + "\nData de Devolução : " + dataDevolucao +  "";
+				+ dataFormatada + "\nData de Devolução: " + dataDevolucao +  "";
 	}
 
 	

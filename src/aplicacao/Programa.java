@@ -1,5 +1,6 @@
 package aplicacao;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,8 +13,9 @@ import objetos.Usuario;
 
 public class Programa {
 
-	public static void main(String[] args) {
-
+	public static void main(String[] args) throws ParseException {
+		
+		
 		Scanner input = new Scanner(System.in);
 		int senha, menuopcao, opcao;
 		String login, nome, email, celular;
@@ -59,6 +61,16 @@ public class Programa {
 						System.out.println("");
 						System.out.println("Digite a data de Devolução: ");
 						dataDevolucao = input.next();
+						
+						Date data1 = new Date(sdf.parse(dataFormatada).getTime());
+						Date data2 = new Date(sdf.parse(dataDevolucao).getTime());
+						
+						if(data1.after(data2)) {
+							System.out.println("Situação do Empréstimo: Atrasado");
+						}else {
+							System.out.println("Situação do Empréstimo: Em dia");
+						}
+						
 						
 						Pessoa pessoa = new Pessoa(nome, email, celular, dataFormatada, dataDevolucao);
 
